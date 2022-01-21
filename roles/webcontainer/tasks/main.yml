@@ -1,0 +1,23 @@
+---
+# tasks file for webcontainer
+
+# install docker with pip
+
+- name: install docker module
+  pip:
+    name: docker
+
+- name: start nginx 
+  docker_container:
+    name: nginx
+    image: nginx
+    detach: yes
+    ports:
+      - 80:80
+
+- name: print docker ps
+  shell: docker ps
+  register: ps
+
+- debug: var=ps.stdout_lines
+
