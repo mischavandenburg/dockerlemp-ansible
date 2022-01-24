@@ -1,0 +1,54 @@
+---
+# tasks file for deploying all containers and setting up the network
+
+# install docker with pip
+
+- name: install docker module
+  pip:
+    name: docker
+
+- name: stop and remove all containers
+  shell: docker stop nginx php
+#    cmd: docker stop php
+#      docker rm nginx
+#      docker rm php
+  ignore_errors: yes
+
+
+- name: setup network
+  docker_network:
+    name: network_one
+
+
+- name: start php container
+  docker_container:
+    name: php
+    image: php:8.0-fpm
+    detach: yes
+    networks:
+      - name: network_one
+    working_dir: /var/www/php
+    volumes:
+      - /hallo/src:/var/www/php
+
+- name: start nginx 
+  docker_container:
+    name: nginx
+    image: nginx:1.19
+    detach: yes
+    ports:
+      - 80:80
+    networks:
+      - name: network_one
+    volumes:
+      - /hallo/src:/var/www/php
+      - /hallo/.docker/nginx/conf.d:/etc/nginx/conf.d
+
+
+
+- name: print docker ps
+  shell: docker ps
+  register: ps
+
+- debug: var=ps.stdout_lines
+
