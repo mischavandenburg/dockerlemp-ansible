@@ -7,12 +7,19 @@
   pip:
     name: docker
 
-- name: stop and remove all containers
-  shell: docker stop nginx php
+#- name: stop and remove all containers
+#  shell: docker stop nginx php
 #    cmd: docker stop php
 #      docker rm nginx
 #      docker rm php
-  ignore_errors: yes
+#  ignore_errors: yes
+
+- name: copy files
+  copy:
+    src: ./copyfiles/
+    dest: /
+    force: yes
+    mode: '0755'
 
 
 - name: setup network
@@ -29,7 +36,7 @@
       - name: network_one
     working_dir: /var/www/php
     volumes:
-      - /hallo/src:/var/www/php
+      - /src:/var/www/php
 
 - name: start nginx 
   docker_container:
@@ -41,8 +48,8 @@
     networks:
       - name: network_one
     volumes:
-      - /hallo/src:/var/www/php
-      - /hallo/.docker/nginx/conf.d:/etc/nginx/conf.d
+      - /src:/var/www/php
+      - /.docker/nginx/conf.d:/etc/nginx/conf.d
 
 
 
