@@ -3,11 +3,7 @@
 - name: call roles
   hosts: all
   become: true
-  vars:
-    src_path: /home/ansible/dockerlemp-ansible/src
-    docker_path: /home/ansible/dockerlemp-ansible/.docker
 
   roles: 
-    # - docker_installer
-    # - webcontainer
+    - docker_installer
     - deploystack

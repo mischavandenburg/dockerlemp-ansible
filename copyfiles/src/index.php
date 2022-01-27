@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Hello there</title>
+        <title>Containerized LEMP stack by Mischa van den Burg</title>
         <style>
             body {
                 font-family: "Arial", sans-serif;
@@ -18,7 +18,17 @@
         </style>
     </head>
     <body>
-        <img src="https://tech.osteel.me/images/2020/03/04/hello.gif" alt="Hello there" class="center">
+        <img src="https://www.technative.nl/wp-content/uploads/2021/10/TechNative_logo_colour_RGB.svg" alt="Hallo van Technative" class="center">
+	<center>
+	<h1>
+	<br>
+	Hallo, dit is de test pagina van de LEMP stack.<br>
+	Deze applicatie draait in 4 verschillende containers.<br>
+	PHP, MySQL, PHPMyAdmin met NGINX als webserver.<br>
+	Geïnstalleerd middels Ansible.<br>
+	Mischa van den Burg<br><br><br>
+	</h1>
+	</center>
         <?php
         $connection = new PDO('mysql:host=mysql;dbname=demo;charset=utf8', 'root', 'root');
         $query      = $connection->query("SELECT TABLE_NAME FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'demo'");
