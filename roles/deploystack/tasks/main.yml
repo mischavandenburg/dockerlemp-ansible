@@ -1,11 +1,7 @@
 ---
 # tasks file for deploying all containers and setting up the network
 
-# install docker with pip
-
-- name: install docker module
-  pip:
-    name: docker
+# Set up directories and copy files
 
 - name: make php image directory
   file:
@@ -22,7 +18,8 @@
 
 - name: copy Dockerfile
   copy:
-    src: ./copyfiles/Dockerfile
+    src: /Dockerfile
+    remote_src: yes
     dest: /phpbuild/
     force: yes
     mode: ' 0755' 
@@ -45,6 +42,8 @@
     build:
       path: /phpbuild
     state: present
+
+# Start the containers
 
 - name: start mysql container
   docker_container:

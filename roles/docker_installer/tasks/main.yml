@@ -35,4 +35,8 @@
     state: started
     enabled: yes
 
+- name: Install Docker SDK
+  pip:
+    name: docker
+
 ...
