@@ -9,7 +9,8 @@ The script then continues to build 4 containers:<br>
 The containers are added to the same network and are configured to be able to communicate with eachother.<br><br>
 The application should be available at the IP addres of the VM or localhost.<br>
 It is mainly designed to use on a VM / EC2 instance.<br>
-<br>
+<br><br>
+The repo is using the "ansible-galaxy init" role structure. You will find the playbooks as follows: roles/your_choice/tasks/main.yml<br>
 <br>
 Configuration:<br>
 The script needs a SSH key to be set up beforehand which is set in the inventory file.<br>

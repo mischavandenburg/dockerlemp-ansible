@@ -22,10 +22,10 @@
 	<center>
 	<h1>
 	<br>
-	Hallo, dit is de test pagina van de LEMP stack.<br>
-	Deze applicatie draait in 4 verschillende containers.<br>
-	PHP, MySQL, PHPMyAdmin met NGINX als webserver.<br>
-	Geïnstalleerd middels Ansible.<br>
+	Hello, this is the test page of the LEMP stack.<br>
+	This application is running in 4 separate containers.<br>
+	PHP, MySQL, PHPMyAdmin and NGINX as the webserver.<br>
+	Installed / deployed with Ansible.<br>
 	Mischa van den Burg<br><br><br>
 	</h1>
 	</center>
