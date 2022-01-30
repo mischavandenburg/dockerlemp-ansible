@@ -1,4 +1,4 @@
-# Dockerlemp-ansible
+# lemp_docker_ansible
 Ansible script which deploys a LEMP stack <br><br>
 The role docker__installer installs Docker and enables it on startup.<br><br>
 The script then continues to build 4 containers:<br>
